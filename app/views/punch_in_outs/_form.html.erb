@@ -1,0 +1,29 @@
+<%= form_for(@punch_in_out) do |f| %>
+  <% if @punch_in_out.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@punch_in_out.errors.count, "error") %> prohibited this punch_in_out from being saved:</h2>
+
+      <ul>
+      <% @punch_in_out.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :check_in %><br>
+    <%= f.datetime_select :check_in %>
+  </div>
+  <div class="field">
+    <%= f.label :check_out %><br>
+    <%= f.datetime_select :check_out %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
